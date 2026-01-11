@@ -6,28 +6,29 @@ import doodle2 from "./assets/doodle2.png";
 
 const BOX_COUNT = 550;
 
+function createInitialSavings() {
+	let savings = [];
+	for (let i = 0; i < BOX_COUNT; i++) {
+		savings.push({ id: i, saved: false });
+	}
+	return savings;
+}
+
 function App() {
 	const stored = localStorage.getItem("savings");
 
-	const initialSavings = Array.from({ length: BOX_COUNT }, (_, i) => ({
-		id: i,
-		saved: false,
-	}));
+	const [savings, setSavings] = useState(stored ? JSON.parse(stored) : createInitialSavings());
 
-	const [savings, setSavings] = useState(stored ? JSON.parse(stored) : initialSavings);
-
-	useEffect(() => {
-		localStorage.setItem("savings", JSON.stringify(savings));
-	}, [savings]);
-
-	const toggleDay = (index) => {
-		const newSavings = [...savings];
-		newSavings[index].saved = !newSavings[index].saved;
-		setSavings(newSavings);
+	const toggleDay = (id) => {
+		setSavings((prev) => prev.map((day) => (day.id === id ? { ...day, saved: !day.saved } : day)));
 	};
 
 	const savedCount = savings.filter((day) => day.saved).length;
 	const totalAmount = savedCount * 20000;
+
+	useEffect(() => {
+		localStorage.setItem("savings", JSON.stringify(savings));
+	}, [savings]);
 
 	return (
 		<div className="app">
@@ -44,7 +45,7 @@ function App() {
 					<button
 						onClick={() => {
 							localStorage.removeItem("savings");
-							setSavings(initialSavings);
+							setSavings(createInitialSavings());
 						}}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -53,10 +54,10 @@ function App() {
 							viewBox="0 0 24 24"
 							fill="none"
 							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw">
+							strokeWidth="2"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							className="lucide lucide-rotate-ccw-icon lucide-rotate-ccw">
 							<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
 							<path d="M3 3v5h5" />
 						</svg>
@@ -66,7 +67,7 @@ function App() {
 
 			<div className="grid">
 				{savings.map((day, index) => (
-					<div key={index} className={`box ${day.saved ? "saved" : ""}`} onClick={() => toggleDay(index)}>
+					<div key={day.id} className={`box ${day.saved ? "saved" : ""}`} onClick={() => toggleDay(day.id)}>
 						20k
 					</div>
 				))}
