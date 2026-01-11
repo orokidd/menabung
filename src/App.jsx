@@ -73,7 +73,7 @@ function App() {
 			</div>
 
 			<div className="footer">
-				<p>Made with love by your bf</p>
+				<p>Made with love by your bf❤️</p>
 				<a href="https://www.youtube.com/watch?v=kn-qWbU4tC8">
 					<img src={catstare} className="cat-img" alt="cat stare image" />
 				</a>
