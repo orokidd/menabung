@@ -29,7 +29,7 @@ button {
   font-family: charismamountain;
 }
 
-.header-text {
+.header {
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
@@ -103,7 +103,7 @@ button {
 }
 
 @media screen and (max-width: 560px) {
-  .header {
+  .header-text {
     max-width: 200px;
     margin: 32px auto;
   }

@@ -32,10 +32,10 @@ function App() {
 
 	return (
 		<div className="app">
-			<div className="header-text">
+			<div className="header">
 				<img src={doodle1} className="doodle-img left" alt="doodle image" />
 				<img src={doodle2} className="doodle-img right" alt="doodle image" />
-				<h1 className="header">Serina Menabung</h1>
+				<h1 className="header-text">Serina Menabung</h1>
 			</div>
 
 			<div className="total-reset">
