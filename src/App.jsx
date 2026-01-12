@@ -3,6 +3,13 @@ import "./App.css";
 import catstare from "./assets/catstare.gif";
 import doodle1 from "./assets/doodle1.png";
 import doodle2 from "./assets/doodle2.png";
+import doodle3 from "./assets/menabung-doodle4.png";
+import doodle4 from "./assets/menabung-doodle5e.png";
+import doodle5 from "./assets/menabung-doodle6.png";
+import doodle6 from "./assets/menabung-doodle8.png";
+import doodle7 from "./assets/menabung-doodle9.png";
+import doodle8 from "./assets/menabung-doodle10.png";
+import doodle9 from "./assets/menabung-doodle11.png";
 
 const BOX_COUNT = 550;
 
@@ -18,9 +25,14 @@ function App() {
 	const stored = localStorage.getItem("savings");
 
 	const [savings, setSavings] = useState(stored ? JSON.parse(stored) : createInitialSavings());
+	const [modal, setModal] = useState(false);
 
 	const toggleDay = (id) => {
 		setSavings((prev) => prev.map((day) => (day.id === id ? { ...day, saved: !day.saved } : day)));
+	};
+
+	const openModal = () => {
+		setModal(true);
 	};
 
 	const savedCount = savings.filter((day) => day.saved).length;
@@ -32,9 +44,39 @@ function App() {
 
 	return (
 		<div className="app">
+			{modal && (
+				<div className="reset-modal">
+					<div className="modal-content">
+						<h2>Reset Tabungan</h2>
+						<p>Yakin mau hapus tabungannya?</p>
+						<div className="modal-buttons">
+							<button
+								className="confirm"
+								onClick={() => {
+									localStorage.removeItem("savings");
+									setSavings(createInitialSavings());
+									setModal(false);
+								}}>
+								Hapus
+							</button>
+							<button className="cancel" onClick={() => setModal(false)}>
+								Batal
+							</button>
+						</div>
+					</div>
+				</div>
+			)}
+
 			<div className="header">
-				<img src={doodle1} className="doodle-img left" alt="doodle image" />
-				<img src={doodle2} className="doodle-img right" alt="doodle image" />
+				{/* <img src={doodle1} className="doodle-img left" alt="doodle image" /> */}
+				{/* <img src={doodle2} className="doodle-img right" alt="doodle image" /> */}
+				<img src={doodle3} className="doodle-img photo1" alt="doodle image" />
+				<img src={doodle4} className="doodle-img photo2" alt="doodle image" />
+				<img src={doodle5} className="doodle-img photo3" alt="doodle image" />
+				{/* <img src={doodle6} className="doodle-img photo42" alt="doodle image" /> */}
+				<img src={doodle7} className="doodle-img photo4" alt="doodle image" />
+				<img src={doodle8} className="doodle-img photo5" alt="doodle image" />
+				<img src={doodle9} className="doodle-img photo6" alt="doodle image" />
 				<h1 className="header-text">Serina Menabung</h1>
 			</div>
 
@@ -44,8 +86,7 @@ function App() {
 				<div className="reset">
 					<button
 						onClick={() => {
-							localStorage.removeItem("savings");
-							setSavings(createInitialSavings());
+							openModal();
 						}}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

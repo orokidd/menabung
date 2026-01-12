@@ -14,7 +14,8 @@
 }
 
 body {
-	background-color: #f0f4f8;
+	/* background-color: #d8b6e1; */
+  background: linear-gradient(135deg, #e5c1ed 0%, #87678c 100%);
 	color: #333;
   margin: 0;
   padding: 0;
@@ -42,6 +43,10 @@ button {
 	animation: fadeIn 0.6s ease-in-out;
 }
 
+.header-text {
+  color: rgb(243, 243, 243);
+}
+
 .doodle-img {
 	width: 140px;
 	position: absolute;
@@ -57,20 +62,66 @@ button {
 	top: -78px;
 }
 
+.doodle-img.photo1 {
+  width: 130px;
+	right: 24px;
+	top: -84px;
+}
+
+.doodle-img.photo2 {
+	left: 0px;
+  top: 58px;
+  z-index: -1;
+}
+
+.doodle-img.photo3 {
+	right: 28px;
+  top: 150px;
+  z-index: -1;
+}
+
+.doodle-img.photo4 {
+  width: 70px;
+  transform: scaleX(-1);
+	left: 84px;
+  top: -54px;
+  z-index: -1;
+}
+
+.doodle-img.photo42 {
+  width: 60px;
+	right: 38px;
+  top: 40px;
+  z-index: -1;
+}
+
+.doodle-img.photo5 {
+	right: 28px;
+  top: 64px;
+  z-index: -1;
+}
+
+.doodle-img.photo6 {
+  width: 54px;
+	right: 38px;
+  top: 44px;
+  z-index: -1;
+}
+
 .total-reset {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 20px;
+	padding: 40px 20px 0 20px;
+
 	max-width: 600px;
 	margin: 0 auto;
-
 
 	animation: fadeIn 0.6s ease-in-out;
 }
 
 .grid-container {
-	background-image: url("./assets/menabung-bg1.png");
+	/* background-image: url("./assets/menabung-bg1.png"); */
 	repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -91,11 +142,11 @@ button {
 .box {
 	width: 40px;
 	height: 40px;
-	border: 2px solid #775f77;
+	border: 2px solid #6f537f;
 	cursor: pointer;
 	border-radius: 4px;
 	transition: background 0.3s ease;
-	/* background-color: #b388ce; */
+	background-color: #6f537f;
 
 	display: flex;
 	align-items: center;
@@ -104,16 +155,17 @@ button {
 
 .box.saved {
 	/* background: #7e577d; */ 
-  background: #b388ce;
+  background: #483653;
+  border: 2px solid #483653;
 }
 
 .box-text {
-  color: #b783ba;
+  color: #eeeeee;
   transition: color 0.3s ease;
 }
 
 .box.saved .box-text {
-  color: #fff;
+  color: #b0b0b0;
 }
 
 .footer {
@@ -130,6 +182,43 @@ button {
 
 .cat-img {
 	width: 160px;
+}
+
+.reset-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 300px;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.confirm, .cancel {
+  background: #6f537f;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 @keyframes fadeIn {
@@ -167,7 +256,7 @@ button {
 
 @media screen and (max-width: 560px) {
   .grid-container {
-    background-image: url('./assets/menabung-mobile-1.png');
+    /* background-image: url('./assets/menabung-mobile-3.png'); */
   }
 	.header-text {
 		max-width: 200px;
