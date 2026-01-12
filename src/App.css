@@ -70,7 +70,7 @@ button {
 }
 
 .grid-container {
-	background-image: url("./assets/menabung-mobile-2.png");
+	background-image: url("./assets/menabung-bg1.png");
 	repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -166,6 +166,9 @@ button {
 }
 
 @media screen and (max-width: 560px) {
+  .grid-container {
+    background-image: url('./assets/menabung-mobile-1.png');
+  }
 	.header-text {
 		max-width: 200px;
 		margin: 32px auto;
