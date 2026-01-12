@@ -1,151 +1,173 @@
 @font-face {
-  font-family: slowplay;
-  src: url(./assets/Slowplay-Regular.ttf) format('truetype'),
+	font-family: slowplay;
+	src: url(./assets/Slowplay-Regular.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: charismamountain;
-  src: url(./assets/Charisma-Mountain.otf) format('opentype'),
+	font-family: charismamountain;
+	src: url(./assets/Charisma-Mountain.otf) format("opentype");
 }
 
 @font-face {
-  font-family: candyplanet;
-  src: url(./assets/Candy-Planet.ttf) format('truetype'),
+	font-family: candyplanet;
+	src: url(./assets/Candy-Planet.ttf) format("truetype");
 }
 
 body {
-  background-color: #f0f4f8;
-  color: #333;
+	background-color: #f0f4f8;
+	color: #333;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 button {
-  background: none;
-  border: none;
-  cursor: pointer;
+	background: none;
+	border: none;
+	cursor: pointer;
 }
 
 .app {
-  padding: 20px;
-  font-family: charismamountain;
+	font-family: charismamountain;
 }
 
 .header {
-  font-size: 24px;
-  margin-bottom: 20px;
-  text-align: center;
-  position: relative;
-  max-width: 600px;
-  margin: 0 auto 20px auto;
+	font-size: 24px;
+	margin-bottom: 20px;
+	text-align: center;
+	position: relative;
+	max-width: 600px;
+	margin: 80px auto 20px auto;
 
-  animation: fadeIn .6s ease-in-out;
+	animation: fadeIn 0.6s ease-in-out;
 }
 
 .doodle-img {
-  width: 140px;
-  position: absolute;
+	width: 140px;
+	position: absolute;
 }
 
 .doodle-img.left {
-  left: 20px;
-  top: -78px;
+	left: 20px;
+	top: -78px;
 }
 
 .doodle-img.right {
-  right: 0px;
-  top: -78px;
+	right: 0px;
+	top: -78px;
 }
 
 .total-reset {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 10px;
-  max-width: 600px;
-  margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	max-width: 600px;
+	margin: 0 auto;
 
-  animation: fadeIn .6s ease-in-out;
+
+	animation: fadeIn 0.6s ease-in-out;
+}
+
+.grid-container {
+	background-image: url("./assets/menabung-mobile-2.png");
+	repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+  padding: 20px;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 40px);
-  gap: 6px;
-  max-width: 600px;
-  margin: 0 auto;
-  justify-content: center;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 40px);
+	gap: 6px;
+	max-width: 600px;
+	margin: 0 auto;
+	justify-content: center;
 
-  animation: fadeInBottom .6s ease-in-out;
+	animation: fadeInBottom 0.6s ease-in-out;
 }
 
 .box {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.15s ease;
-  background-color: #98ce88;
+	width: 40px;
+	height: 40px;
+	border: 2px solid #775f77;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: background 0.3s ease;
+	/* background-color: #b388ce; */
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .box.saved {
-  background: #5b7e57; /* green */
+	/* background: #7e577d; */ 
+  background: #b388ce;
+}
+
+.box-text {
+  color: #b783ba;
+  transition: color 0.3s ease;
+}
+
+.box.saved .box-text {
+  color: #fff;
 }
 
 .footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
-  margin-top: 40px;
-  font-size: 18px;
+  padding: 20px;
+	margin-top: 40px;
+	font-size: 18px;
 
-  animation: scaleIn .6s ease-in-out;
+	animation: scaleIn 0.6s ease-in-out;
 }
 
 .cat-img {
-  width: 160px;
+	width: 160px;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 @keyframes fadeInBottom {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 @keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
 }
 
 @media screen and (max-width: 560px) {
-  .header-text {
-    max-width: 200px;
-    margin: 32px auto;
-  }
+	.header-text {
+		max-width: 200px;
+		margin: 32px auto;
+	}
 }

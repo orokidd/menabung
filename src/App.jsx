@@ -65,12 +65,14 @@ function App() {
 				</div>
 			</div>
 
-			<div className="grid">
-				{savings.map((day, index) => (
-					<div key={day.id} className={`box ${day.saved ? "saved" : ""}`} onClick={() => toggleDay(day.id)}>
-						20k
-					</div>
-				))}
+			<div className="grid-container">
+				<div className="grid">
+					{savings.map((day, index) => (
+						<div key={day.id} className={`box ${day.saved ? "saved" : ""}`} onClick={() => toggleDay(day.id)}>
+							<p className="box-text">20k</p>
+						</div>
+					))}
+				</div>
 			</div>
 
 			<div className="footer">
